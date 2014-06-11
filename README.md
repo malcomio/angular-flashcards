@@ -1,4 +1,8 @@
 angular-flashcards
 ==================
 
-Language learning flashcar
+Language learning flashcards system, built using AngularJS and Zurb Foundation.
+
+
+
+
