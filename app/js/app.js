@@ -10,7 +10,7 @@ angular.module('flashcardsApp', [
   'flashcardsApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'flashcardCtrl'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'flashcardCtrl'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/question', {templateUrl: 'partials/question.html', controller: 'flashcardCtrl'});
+  $routeProvider.when('/answer', {templateUrl: 'partials/answer.html', controller: 'flashcardCtrl'});
+  $routeProvider.otherwise({redirectTo: '/question'});
 }]);

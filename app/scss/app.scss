@@ -1,6 +1,11 @@
 @import "settings";
 @import "foundation";
 
+
+@import "compass/support";
+@import "compass/css3";
+@import "flashcards";
+
 // Or selectively include components
 // @import
 //   "foundation/components/accordion",
