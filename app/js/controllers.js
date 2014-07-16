@@ -16,8 +16,14 @@ angular.module('flashcardsApp.controllers', [])
         },
       ];
 
+      $scope.question = true;
+
       $scope.counter = $scope.score = $scope.attempts = 0;
       $scope.scorePct = 100;
+
+      $scope.showAnswer = function() {
+        $scope.question = false;
+      }
 
       $scope.answerCorrect = function () {
         $scope.score++;
@@ -38,6 +44,9 @@ angular.module('flashcardsApp.controllers', [])
 
         $scope.attempts++;
         $scope.scorePct = ($scope.score / $scope.attempts) * 100;
+
+        // Show the question
+        $scope.question = true;
       }
     }
   ]);

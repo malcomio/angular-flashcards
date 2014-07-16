@@ -1,4 +1,4 @@
-<!DOCTYPE html ng-app="flashcardsApp" ng-controller="flashcardCtrl">
+<!DOCTYPE html ng-app="flashcardsApp">
 <!--[if lt IE 7]>
 <html lang="en" ng-app="flashcardsApp"
       class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -21,7 +21,7 @@
   <script
     src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
+<body ng-controller="flashcardCtrl">
 <nav class="top-bar">
   <section class="top-bar-section">
     <ul class="menu">
@@ -46,8 +46,36 @@
   your experience.</p>
 <![endif]-->
 
-<div ng-view class="flashcards">
-  <a>Current score: {{ score }}</a>
+<div class="flashcards">
+  <div class="question" ng-show="question">
+    <div class="card">
+      <h2 class="card-question">{{cards[counter].question}}</h2>
+    </div>
+
+    <div class="controls">
+      <a ng-click="showAnswer()" class="medium radius button">Show answer</a>
+      <div class="score">Current score: {{ score }} / {{ attempts }} : {{ scorePct }} &percnt;</div>
+    </div>
+  </div>
+
+  <div class="answer" ng-hide="question">
+    <div class="card">
+      <div class="card-answer">{{cards[counter].answer}}</div>
+    </div>
+
+    <div class="controls">
+      <a ng-click="answerCorrect()" class="medium radius success button">I know it</a>
+      <a ng-click="answerWrong()" class="medium radius alert button">I don't know it</a>
+
+      <div class="controls-sub">
+        <a href="#" ng-click="card-hide" class="tiny radius button">Don't show this card again</a>
+        <a href="#" class="tiny radius button">Show the question again</a>
+      </div>
+      <div class="score">Current score: {{ score }} / {{ attempts }} : {{ scorePct }}&percnt;</div>
+    </div>
+
+  </div>
+
 </div>
 
 <!-- In production use:
